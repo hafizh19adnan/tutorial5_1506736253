@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Add student</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<h1 class="page-header">Editor</h1>
+	<div th:each="student,iterationStatus: ${students}">
+	<form action="/student/update/submit" th:object="${students}" method="post">
+		<div>
+			<label for="npm">NPM</label> <input type="text" th:field="*{npm}"  readonly="true" th:value="${student.npm}" />
+		</div>
+		<div>
+			<label for="name">Name</label> <input type="text" th:field="*{name}" th:value="${student.name}" />
+		</div>
+		<div>
+			<label for="gpa">GPA</label> <input type="text" th:field="*{gpa}" th:value="${student.gpa}" />
+		</div>
+
+		<div>
+			<button type="submit" name="action" value="save">Update</button>
+		</div>
+	</form>
+	</div>
+	
+</body>
+
+</html>
+
